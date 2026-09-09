@@ -1,0 +1,13 @@
+.tools/
+**/.lake/
+*.olean
+*.ilean
+*.olean.private
+*.olean.server
+
+# 本机参考材料、上游 checkout 和诊断产物；依赖由准备脚本恢复。
+research/*
+!research/formalization-bms-interface-audit.md
+formalization/Concrete/patches/*.original
+formalization/Concrete/patches/identified-hotspot.json
+formalization/Concrete/patches/record_stage_patch.py
