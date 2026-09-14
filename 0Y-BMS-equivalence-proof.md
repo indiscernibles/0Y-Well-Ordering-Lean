@@ -174,7 +174,7 @@ $$\tag{1} a'_r(j_t)=a_r(j)+t\Delta_r\,\mathbf1_{b\preceq_r j}\quad(r<d),$$
 
 ### 4.1 展开后的父图
 
-使用 Vargovčík 论文引理 2.5 的祖先复制结论，可以得到以下父项形式：
+使用 Hunter 论文引理 2.5 的祖先复制结论，可以得到以下父项形式：
 
 * 好部的父项不变。
 * 非首列 $j_t$，$b<j<c$：原父项在好部则固定，在坏部则取同块复制，无父项则仍无父项。
@@ -276,7 +276,7 @@ $$W_3(1,4,6,4)=(1,4,6,3,7,10,6,11,15,10),$$
 
 ## 七、良序性
 
-Vargovčík 的 BM4 良序定理适用于种子展开闭包，特别给出“非平凡展开的有限传递闭包”是严格良序。本文把共同尾零行视为同一表示，与论文及 Lean 的删尾零行规范数组逐一对应，并且展开相容。论文还允许零行种子；这个种子只是两个零列，已经由一行种子展开一次得到，所以不会增加本文的生成集合。
+Hunter 的 BM4 良序定理适用于种子展开闭包，特别给出“非平凡展开的有限传递闭包”是严格良序。本文把共同尾零行视为同一表示，与论文及 Lean 的删尾零行规范数组逐一对应，并且展开相容。论文还允许零行种子；这个种子只是两个零列，已经由一行种子展开一次得到，所以不会增加本文的生成集合。
 
 为免把不同有限列长度的字典序与本文“补无限尾零”的字典序混用，另作如下桥接。每次非空 BM4 展开在本文字典序下严格下降：$n=0$ 或末列无父项时取真前缀；其余情形在第一新列 $b_1$ 与原末列 $c$ 首次比较，所有 $r<d$ 行相等，第 $d$ 行则前者严格较小。故展开生成关系包含于本文字典序。前者已经是全序，所以反向包含也成立：若 $A<_{\rm lex}B$，全序性排除相等；若反向生成下降，则又有 $B<_{\rm lex}A$，矛盾。因此本文字典序同样良序。
 
@@ -341,6 +341,6 @@ $$\rho(B_n(A))<\rho(A)\qquad(n\in\mathbb N).$$
 
 1. 初始实现参考为 BMS 展开器、0-Y 展开器和互转程序。本文最终采用独立定义的数学算法；外部程序不作为证明前提，也未包含在仓库中。
 2. [Googology Wiki：0-Y](https://wiki.googology.top/index.php/0-Y)，页面最后编辑 2026-02-25。本文不把其中“等价”的描述当作已证定理；页面也明确注明此前尚无严格证明。
-3. Samuel Vargovčík, [Well-Orderedness of the Bashicu Matrix System](https://arxiv.org/abs/2307.04606)。本文读取的 PDF 为 v2；复用定义 1.1、祖先复制引理 2.5 及 BM4 良序结论。
+3. Rachel Hunter, [Well-Orderedness of the Bashicu Matrix System](https://arxiv.org/abs/2307.04606)。本文读取的 PDF 为 v2；复用定义 1.1、祖先复制引理 2.5 及 BM4 良序结论。
 4. [BMS-Well-Ordering-Lean](https://github.com/EgoFakeFantasy/BMS-Well-Ordering-Lean)，本次基线提交 `bae7e3d741f24a56d80da9b99c1345562cd10c2d`，另有两个不改变公开定理陈述、公式定义与假设的本地证明性能补丁。已重建本工程导入的 BMS 核心模块、`ConstructibleBridge.FinalAssembly` 及其依赖，并审计新增关键声明、具体模型和最终定理；准确补丁与锁定源码信息见 [具体模型说明](formalization/Concrete/README.md)。
 5. 仓库中的 [Lean 公理审计清单](formalization/Audit.lean) 与 [具体模型公理审计清单](formalization/Concrete/Audit.lean)；实际运行结果见 [验证记录](formalization/VALIDATION.md)。辅助样例见 [Examples.lean](formalization/Examples.lean)，有限样例不承担全称命题的证明。
